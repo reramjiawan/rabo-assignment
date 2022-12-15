@@ -1,0 +1,11 @@
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ng-container *ngIf="transactions$ | async as transactions">
+    <frontend-transaction-summary
+      *ngFor="let transaction of transactions"
+      [transaction]="transaction"
+    ></frontend-transaction-summary>
+  </ng-container>
+</ion-content>

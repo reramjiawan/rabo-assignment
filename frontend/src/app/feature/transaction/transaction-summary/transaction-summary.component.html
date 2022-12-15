@@ -1,0 +1,10 @@
+<ion-card
+  *ngIf="transaction"
+  routerLink="/transaction/detail"
+  [queryParams]="{ id: transaction.id, timestamp: transaction.timestamp }"
+>
+  <ion-card-header>
+    <ion-card-title>{{ transaction.otherParty?.name | name }}</ion-card-title>
+    <ion-text>{{ transaction.amount | convertCurrency : transaction.currencyRate }}</ion-text>
+  </ion-card-header>
+</ion-card>

@@ -1,0 +1,15 @@
+<ion-card *ngIf="transaction">
+  <ion-card-header>
+    <div>
+      <ion-card-title data-test-id="name">{{ transaction.otherParty?.name | name }}</ion-card-title>
+      <ion-card-subtitle data-test-id="iban">{{ transaction.otherParty?.iban }}</ion-card-subtitle>
+    </div>
+    <div class="right">
+      <ion-text data-test-id="timestamp">{{ transaction.timestamp | date : 'dd-MM-yyyy' }}</ion-text>
+      <ion-text data-test-id="currency" class="currency">
+        {{ transaction.amount | convertCurrency : transaction.currencyRate }}
+      </ion-text>
+    </div>
+  </ion-card-header>
+  <ion-card-content data-test-id="description">{{ transaction.description }}</ion-card-content>
+</ion-card>
